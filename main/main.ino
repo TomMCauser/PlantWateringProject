@@ -1,23 +1,28 @@
-#include "Arduino.h"
+// Author:          Tom Causer
+// Date:            22/01/2024
+// Purpose:         Act as the main file for the Arduino to read from.
+//                  Arduinos furthermore require the folder name to be the same as
+//                  the main .ino file.
 
-int sensorPin = A0; // select the input pin for the potentiometer
-int sensorValue = 0; // variable to store the value coming from the sensor
-//int sensorVCC = 13;
+#include "Arduino.h"
+#include "globals.h"
+#include "moistureSensor.h"
+#include "pump.h"
 
 void setup()
 {
 Serial.begin(9600);
-//pinMode(sensorVCC, OUTPUT); // declare the ledPin as an OUTPUT:
-//digitalWrite(sensorVCC, LOW);
+pinMode(sensorVCC, OUTPUT);
+digitalWrite(sensorVCC, LOW); // initiated with 0 volts
 }
 
 void loop()
 {
-//digitalWrite(sensorVCC, HIGH); // power the sensor
-//delay(100); //make sure the sensor is powered
-sensorValue = analogRead(sensorPin); // read the value from the sensor:
-//digitalWrite(sensorVCC, LOW); //stop power
-delay(10*1000); //wait
+digitalWrite(sensorVCC, HIGH); // power the sensor
+delay(0.1*secondsConversion); //make sure the sensor is powered
+moistureValue = analogRead(moistureSensorPin); // read the value from the sensor:
+digitalWrite(sensorVCC, LOW); //stop power
+delay(10*secondsConversion); //wait
 Serial.print("sensor = " );
-Serial.println(sensorValue);
+Serial.println(moistureValue);
 }
