@@ -4,7 +4,8 @@
 // 
 // 
 
-const int moistureSensorPin = A0; // select the input pin for the potentiometer
+const int moistureSensorPin = A0; // input pin for the potentiometer
+const int relayPin = 10; // input pin for the relay
 const int sensorVCC = 13; // pin number for digital output pin
 const int secondsConversion = 1000;
 

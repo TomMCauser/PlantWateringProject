@@ -5,4 +5,8 @@
 //                  Relay: https://www.electrokit.com/en/product/relay-module-5v/
 
 #include "pump.h"
+#include "globals.h"
 
+void pumpInit(){
+    pinMode(relayPin ,OUTPUT);
+}

@@ -9,15 +9,13 @@
 #include "moistureSensor.h"
 #include "pump.h"
 
-void setup()
-{
+void setup(){
 Serial.begin(9600);
-pinMode(sensorVCC, OUTPUT);
-digitalWrite(sensorVCC, LOW); // initiated with 0 volts
+pumpInit();
+moistureSensorInit();
 }
 
-void loop()
-{
+void loop(){
 digitalWrite(sensorVCC, HIGH); // power the sensor
 delay(0.1*secondsConversion); //make sure the sensor is powered
 moistureValue = analogRead(moistureSensorPin); // read the value from the sensor:

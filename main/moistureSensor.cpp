@@ -5,4 +5,9 @@
 //                  
 
 #include "moistureSensor.h"
+#include "globals.h"
 
+void moistureSensorInit(){
+    pinMode(sensorVCC, OUTPUT);
+    digitalWrite(sensorVCC, LOW); // initiated with 0 volts
+}
