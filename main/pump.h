@@ -5,3 +5,5 @@
 //                  Relay: https://www.electrokit.com/en/product/relay-module-5v/
 
 void pumpInit();
+void pumpState_ON();
+void pumpState_OFF();

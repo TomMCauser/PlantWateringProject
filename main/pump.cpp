@@ -8,5 +8,13 @@
 #include "globals.h"
 
 void pumpInit(){
-    pinMode(relayPin ,OUTPUT);
+    pinMode(relayPin, OUTPUT);
+}
+
+void pumpState_ON(){
+    digitalWrite(relayPin, HIGH);
+}
+
+void pumpState_OFF(){
+    digitalWrite(relayPin, LOW);
 }

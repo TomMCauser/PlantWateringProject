@@ -10,17 +10,17 @@
 #include "pump.h"
 
 void setup(){
-Serial.begin(9600);
-pumpInit();
-moistureSensorInit();
+    Serial.begin(9600);
+    pumpInit();
+    moistureSensorInit();
 }
 
 void loop(){
-digitalWrite(sensorVCC, HIGH); // power the sensor
-delay(0.1*secondsConversion); //make sure the sensor is powered
-moistureValue = analogRead(moistureSensorPin); // read the value from the sensor:
-digitalWrite(sensorVCC, LOW); //stop power
-delay(10*secondsConversion); //wait
-Serial.print("sensor = " );
-Serial.println(moistureValue);
+    takeMoistureReading();
+    delay(delayPeriod*secondsConversion);
+
+    pumpState_ON();
+    delay(1000);
+    pumpState_OFF();
+    delay(1000);
 }

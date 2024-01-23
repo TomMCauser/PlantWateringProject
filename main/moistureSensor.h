@@ -5,3 +5,4 @@
 //            
 
 void moistureSensorInit();
+void takeMoistureReading();

@@ -4,10 +4,18 @@
 //                  https://www.electrokit.com/en/product/soil-hygrometer-module/
 //                  
 
+#include "Arduino.h"
 #include "moistureSensor.h"
 #include "globals.h"
 
 void moistureSensorInit(){
     pinMode(sensorVCC, OUTPUT);
     digitalWrite(sensorVCC, LOW); // initiated with 0 volts
+}
+
+void takeMoistureReading(){
+    digitalWrite(sensorVCC, HIGH);
+    delay(0.1*secondsConversion);
+    *moistureValue = analogRead(moistureSensorPin);
+    digitalWrite(sensorVCC, LOW);
 }
